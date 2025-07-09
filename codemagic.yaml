@@ -1,17 +1,19 @@
 workflows:
-  flutter-app:
-    name: Flutter App Build
+  ios-workflow:
+    name: Build iOS app
     max_build_duration: 60
     environment:
+      vars:
+        BUNDLE_ID: "com.mondomaine.lejeuneperefils"
       flutter: stable
       xcode: latest
-      android: true
+    triggering:
+      events:
+        - push
     scripts:
-      - name: Install dependencies
-        script: |
-          flutter pub get
-      - name: Build APK
-        script: |
-          flutter build apk --release
+      - name: Get Flutter packages
+        script: flutter pub get
+      - name: Build iOS release
+        script: flutter build ios --release --no-codesign
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
+      - build/ios/iphoneos/*.app
