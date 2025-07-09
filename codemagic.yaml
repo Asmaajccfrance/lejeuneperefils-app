@@ -17,3 +17,8 @@ workflows:
         script: flutter build ios --release --no-codesign
     artifacts:
       - build/ios/iphoneos/*.app
+
+    publishing:
+      app_store_connect:
+        api_key: Lejeune_Père_et_fils
+        submit_to_testflight: true
