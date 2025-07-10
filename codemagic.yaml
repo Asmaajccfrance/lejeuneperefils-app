@@ -9,7 +9,7 @@ workflows:
         BUNDLE_ID: "com.mondomaine.lejeuneperefils"
         APP_STORE_CONNECT_KEY: |
           -----BEGIN PRIVATE KEY-----
-          (ton contenu de clé privée ici)
+          (ta clé ici)
           -----END PRIVATE KEY-----
         APP_STORE_CONNECT_KEY_ID: ZV8WH5HF9X
         APP_STORE_CONNECT_ISSUER_ID: 46d4a030-cbad-4ff9-a8e9-8e15b157646b
@@ -19,10 +19,10 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: flutter pub get
-      - name: Build iOS release
-        script: flutter build ios --release --no-codesign
+      - name: Build IPA
+        script: flutter build ipa --release
     artifacts:
-      - build/ios/iphoneos/*.app
+      - build/ios/ipa/*.ipa
     publishing:
       app_store_connect:
         api_key: APP_STORE_CONNECT_KEY
