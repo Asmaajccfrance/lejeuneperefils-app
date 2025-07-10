@@ -7,15 +7,6 @@ workflows:
       xcode: latest
       vars:
         BUNDLE_ID: "com.mondomaine.lejeuneperefils"
-        APP_STORE_CONNECT_KEY: |
-          -----BEGIN PRIVATE KEY-----
-          (colle ici tout le contenu du fichier AuthKey_3HP8J62754.p8)
-          -----END PRIVATE KEY-----
-        APP_STORE_CONNECT_KEY_ID: 3HP8J62754
-        APP_STORE_CONNECT_ISSUER_ID: 46d4a030-cbad-4ff9-a8e9-8e15b157646b
-    triggering:
-      events:
-        - push
     scripts:
       - name: Get Flutter packages
         script: flutter pub get
@@ -25,7 +16,7 @@ workflows:
       - build/ios/ipa/*.ipa
     publishing:
       app_store_connect:
-        api_key: APP_STORE_CONNECT_KEY
-        key_id: APP_STORE_CONNECT_KEY_ID
-        issuer_id: APP_STORE_CONNECT_ISSUER_ID
+        api_key: $APP_STORE_CONNECT_KEY
+        key_id: $APP_STORE_CONNECT_KEY_ID
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
         submit_to_testflight: true
