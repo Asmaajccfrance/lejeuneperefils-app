@@ -1,9 +1,9 @@
 workflows:
   ios-workflow:
     name: Build iOS app
-    max_build_duration: 60
-    variable_groups: # <== BONNE INDENTATION
-      - app_store_credentials
+    variable_groups:
+      - app_store_credentials # This is a list item, which is correct
+      - other_group_if_needed
     environment:
       flutter: stable
       xcode: latest
