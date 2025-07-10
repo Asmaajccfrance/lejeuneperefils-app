@@ -176,7 +176,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                           FFButtonWidget(
                             onPressed: () async {
                               await launchURL(
-                                  'mailto:contact@lejeunepf.com?subject=Demande%20de%20renseignements&body=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20concernant%20vos%20services.');
+                                  'mailto: lejeune@lejeunepf.com?subject=Demande%20de%20renseignements&body=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20concernant%20vos%20services.');
                             },
                             text: 'Envoyer un email',
                             icon: Icon(
@@ -270,7 +270,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                               children: [
                                 Icon(
                                   Icons.phone,
-                                  color: Color(0xFF757575),
+                                  color: Colors.black,
                                   size: 20.0,
                                 ),
                                 Text(
@@ -285,6 +285,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
+                                        color: Colors.black,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                         fontStyle: FlutterFlowTheme.of(context)
@@ -299,7 +300,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                               children: [
                                 Icon(
                                   Icons.email_outlined,
-                                  color: Color(0xFF757575),
+                                  color: Colors.black,
                                   size: 20.0,
                                 ),
                                 Text(
@@ -314,6 +315,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
+                                        color: Colors.black,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                         fontStyle: FlutterFlowTheme.of(context)
