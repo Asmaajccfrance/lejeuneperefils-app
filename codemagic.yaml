@@ -5,24 +5,27 @@ workflows:
     environment:
       vars:
         BUNDLE_ID: "com.mondomaine.lejeuneperefils"
-        APP_STORE_CONNECT_KEY: Environnement sécurisé
-        APP_STORE_CONNECT_KEY_ID: ZV8WH5HF9X          # identifiant de la clé (Key ID)
-        APP_STORE_CONNECT_ISSUER_ID: 46d4a030-cbad-4ff9-a8e9-8e15b157646b  # Issuer ID
       flutter: stable
       xcode: latest
+      groups:
+        - app_store_credentials # ← Ce groupe contient les secrets ci-dessous
+
     triggering:
       events:
         - push
+
     scripts:
       - name: Get Flutter packages
         script: flutter pub get
       - name: Build iOS release
         script: flutter build ios --release --no-codesign
+
     artifacts:
       - build/ios/iphoneos/*.app
+
     publishing:
       app_store_connect:
-        key_id: $APP_STORE_CONNECT_KEY_ID
-        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
-        private_key: $APP_STORE_CONNECT_KEY
+        api_key: $APP_STORE_CONNECT_KEY          # ta clé privée complète
+        key_id: $APP_STORE_CONNECT_KEY_ID        # ex : ZV8WH5HF9X
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID  # ex : 46d4a030-cbad-4ff9-a8e9-8e15b157646b
         submit_to_testflight: true
