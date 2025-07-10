@@ -7,6 +7,9 @@ workflows:
       xcode: latest
       vars:
         BUNDLE_ID: "com.mondomaine.lejeuneperefils"
+      # 👇 AJOUTEZ CETTE LIGNE CI-DESSOUS 👇
+      variable_groups:
+        - app_store_credentials 
     scripts:
       - name: Get Flutter packages
         script: flutter pub get
@@ -19,4 +22,3 @@ workflows:
         api_key: $APP_STORE_CONNECT_KEY
         key_id: $APP_STORE_CONNECT_KEY_ID
         issuer_id: $APP_STORE_CONNECT_ISSUER_ID
-        submit_to_testflight: true
