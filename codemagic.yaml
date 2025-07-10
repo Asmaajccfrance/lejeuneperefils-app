@@ -2,8 +2,7 @@ workflows:
   ios-workflow:
     name: Build iOS app
     variable_groups:
-      - app_store_credentials # This is a list item, which is correct
-      - other_group_if_needed
+      - app_store_credentials # ✅ C'est le seul groupe dont vous avez besoin
     environment:
       flutter: stable
       xcode: latest
