@@ -5,9 +5,9 @@ workflows:
     environment:
       vars:
         BUNDLE_ID: "com.mondomaine.lejeuneperefils"
-        APP_STORE_KEY_ID: ZV8WH5HF9X
-        APP_STORE_ISSUER_ID: 46d4a030-cbad-4ff9-a8e9-8e15b157646b
-        APP_STORE_PRIVATE_KEY: Environnement sécurisé (pas dans ce fichier)
+        APP_STORE_CONNECT_KEY: Environnement sécurisé
+        APP_STORE_CONNECT_KEY_ID: ZV8WH5HF9X          # identifiant de la clé (Key ID)
+        APP_STORE_CONNECT_ISSUER_ID: 46d4a030-cbad-4ff9-a8e9-8e15b157646b  # Issuer ID
       flutter: stable
       xcode: latest
     triggering:
@@ -22,7 +22,7 @@ workflows:
       - build/ios/iphoneos/*.app
     publishing:
       app_store_connect:
-        key_id: $APP_STORE_KEY_ID
-        issuer_id: $APP_STORE_ISSUER_ID
-        private_key: $APP_STORE_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_ID
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        private_key: $APP_STORE_CONNECT_KEY
         submit_to_testflight: true
